@@ -239,16 +239,6 @@ UNet++ bridges gap via **nested dense connections**, enabling gradual semantic a
 
 **Full Mathematical Derivation**: [METHODOLOGY.md](METHODOLOGY.md) §2
 
-### Expert Team Validation
-
-Virtual team of 5 renowned scientists reviewed architecture:
-
-1. **Dr. Kaiming He** (ResNet, Mask R-CNN) - Architecture & Attention
-2. **Dr. Ross Girshick** (R-CNN) - Loss Functions & Training
-3. **Dr. Liang-Chieh Chen** (DeepLab) - Multi-Scale Features
-4. **Dr. Alexey Dosovitskiy** (Vision Transformer) - Hybrid Design
-5. **Dr. Sergey Zagoruyko** (WideResNet) - Efficiency
-
 **Consensus**: Current architecture follows SOTA best practices. Recommended improvements: ResNet34 encoder + ASPP + CBAM + Hybrid Loss.
 
 **Full Review**: [Expert Team Review](C:\Users\F\.gemini\antigravity\brain\219191d7-ecfe-47b9-898b-3d51cefc6ceb\expert_team_review.md)
@@ -492,14 +482,6 @@ Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ### Datasets
 - BCSD (Bank Check Security Dataset) - 158 human-annotated samples
-- IDRBT Check Fraud Dataset
-
-### Expert Team (Virtual Consultants)
-- Dr. Kaiming He (ResNet, Mask R-CNN)
-- Dr. Ross Girshick (R-CNN, Fast R-CNN)
-- Dr. Liang-Chieh Chen (DeepLab series)
-- Dr. Alexey Dosovitskiy (Vision Transformer)
-- Dr. Sergey Zagoruyko (WideResNet)
 
 ### Frameworks
 - PyTorch, FastAPI, OpenCV, Streamlit, docTR
@@ -687,14 +669,6 @@ Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ### Datasets
 - BCSD (Bank Check Security Dataset) - 158 human-annotated samples
-- IDRBT Check Fraud Dataset
-
-### Expert Team (Virtual Consultants)
-- Dr. Kaiming He (ResNet, Mask R-CNN)
-- Dr. Ross Girshick (R-CNN, Fast R-CNN)
-- Dr. Liang-Chieh Chen (DeepLab series)
-- Dr. Alexey Dosovitskiy (Vision Transformer)
-- Dr. Sergey Zagoruyko (WideResNet)
 
 ### Frameworks
 - PyTorch, FastAPI, OpenCV, Streamlit, docTR
@@ -720,3 +694,4 @@ Made with scientific integrity for safer financial systems
 [Report Bug](https://github.com/farhad-hassani/check-safety-suite/issues) • [Request Feature](https://github.com/farhad-hassani/check-safety-suite/issues) • [Full Documentation](METHODOLOGY.md)
 
 </div>
+
