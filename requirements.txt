@@ -1,0 +1,16 @@
+streamlit
+opencv-python
+pytesseract
+numpy
+Pillow
+requests
+torch
+transformers
+python-doctr[cpu]
+kagglehub
+colormath>=3.0.0
+matplotlib>=3.8
+ultralytics>=8.2.0
+gradio>=4.44.0
+scikit-learn
+tensorboard

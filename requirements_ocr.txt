@@ -1,0 +1,20 @@
+"""
+Enhanced requirements for OCR extraction feature
+"""
+
+# Core dependencies (already in base requirements)
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# OCR engines
+pytesseract>=0.3.10  # Tesseract wrapper  
+easyocr>=1.7.0      # Alternative OCR engine
+
+# Text/NLP processing
+word2number>=1.1    # Words to numbers conversion
+python-dateutil>=2.8.2  # Date parsing
+
+# Note: Tesseract OCR must be installed separately
+# Windows: https://github.com/UB-Mannheim/tesseract/wiki
+# Linux: sudo apt-get install tesseract-ocr
+# Mac: brew install tesseract

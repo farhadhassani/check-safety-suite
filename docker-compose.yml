@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  # API Service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: check-safety-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=/app/outputs/models/best_model.pth
+      - WORKERS=4
+      - LOG_LEVEL=info
+    volumes:
+      - ./outputs:/app/outputs
+      - ./data:/app/data:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - check-safety-network
+
+  # Redis Cache (for API rate limiting and caching)
+  redis:
+    image: redis:7-alpine
+    container_name: check-safety-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - check-safety-network
+    command: redis-server --appendonly yes
+
+  # Prometheus Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: check-safety-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./deployment/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    restart: unless-stopped
+    networks:
+      - check-safety-network
+
+  # Grafana Dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: check-safety-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./deployment/grafana/dashboards:/etc/grafana/provisioning/dashboards
+    restart: unless-stopped
+    networks:
+      - check-safety-network
+    depends_on:
+      - prometheus
+
+networks:
+  check-safety-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+  prometheus-data:
+  grafana-data:
